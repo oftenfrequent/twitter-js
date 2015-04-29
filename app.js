@@ -5,16 +5,19 @@ var fs = require('fs');
 var tweet = require('./tweetBank');
 var swig = require('swig');
 var routes = require('./routes/');
+var socketio = require('socket.io');
 swig.setDefaults({cache : false});
 
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-app.listen(1337);
+var server = app.listen(1337);
+var io = socketio.listen(server);
 
 app.use(logger( 'dev' ));
-app.use('/', routes);
+app.use('/', routes(io));
+// app.use('/', routes);
 
 // app.get('/tweets', function(req, res) {
 // 	// console.log(tweet.data);

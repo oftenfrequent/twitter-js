@@ -11,14 +11,36 @@
       <b>Your Name</b><br>
       100 followers
     </div>
-    <div class="col-md-9">
+    <div id="tweets" class="col-md-9">
     
       <!-- display tweets here -->
-      {% for tweet in tweets %}
-        <li>{{tweet.text}}</li>
+      <h3> All Tweets</h3>
+      {% for tweet in list %}
+
+        <li class='clearfix'>
+        	<img src ="http://www.kettlebrand.com/site/files/kkHero.jpg"/>
+        	<div id='text'>
+        		<h5><a href="/users/{{tweet.name}}">{{tweet.name}}</a> </h5>
+        		<p id='{{tweet.id}}'>{{tweet.text}}</p>
+        		<a href="#">Re-Tweet</a>
+        	</div>
+        </li>
       {% endfor %}
       
     </div>
   </div>
+
+
+{% if showForm %}
+  <form action="/submit" method="POST">
+    <label for="name_field">Name:</label>
+    <input name="name" type="text" id="name_field" value="{{name}}"/>
+
+    <label for="text_field">Text:</label>
+    <input name="text" type="text" id="text_field" style="width: 350px;" />
+
+    <input type="submit" value="Submit" />
+  </form>
+{% endif %}
     
 {% endblock %}

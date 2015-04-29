@@ -57,3 +57,24 @@ code {
 .content .by {
   font-weight: bold;
 }
+
+li img {
+  width: 100px;
+  height: 50px;
+  float: left;
+  margin-right: 10px;
+}
+#tweets li {
+  list-style: none;
+  margin-top: 10px;
+/*  display: inline-block;*/
+}
+h5 {
+  margin-bottom: 2px;
+}
+li p {
+  margin-bottom: 0px;
+}
+#text {
+  float:left;
+}
