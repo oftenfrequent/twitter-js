@@ -18,9 +18,9 @@
       {% for tweet in tweets %}
 
         <li class='clearfix'>
-        	<img src ='{{tweet.pictureUrl}}'/>
+        	<img src ="{{ user.pictureUrl }}"/>
         	<div id='text'>
-        		<h5><a href="/users/{{tweet.userId}}">{{tweet.userName}}</a> </h5>
+        		<h5><a href="/users/{{user.userId}}">{{user.userName}}</a> </h5>
         		<p id='{{tweet.tweetId}}'>{{tweet.tweet}}</p>
         		<a href="#">Re-Tweet</a>
         	</div>
@@ -36,8 +36,9 @@
           <label for="text_field">Tweet:</label><br/>
           <input name="tweet" type="text" id="text_field" style="width: 350px;" /><br/>
 
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" /><br><br>
         </form>
+          <a href="/deleteuser/{{user.userId}}"><button class="btn btn-danger">Delete User</button></a>
       {% endif %}
       
     </div>

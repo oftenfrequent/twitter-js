@@ -59,10 +59,9 @@ code {
 }
 
 li img {
-  width: 100px;
   height: 50px;
   float: left;
-  margin-right: 10px;
+  margin: 10px;
 }
 #tweets li {
   list-style: none;

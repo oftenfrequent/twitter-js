@@ -6,6 +6,7 @@ var tweet = require('./tweetBank');
 var swig = require('swig');
 var routes = require('./routes/');
 var socketio = require('socket.io');
+// var models = require('./models/');
 swig.setDefaults({cache : false});
 
 app.engine('html', swig.renderFile);
@@ -17,6 +18,22 @@ var io = socketio.listen(server);
 
 app.use(logger( 'dev' ));
 app.use('/', routes(io));
+
+
+// var User = require('./models').User;
+// User.find(5).then(function(user) {
+// 	console.log(user);
+//     user.getTweets().then(function(tweets) {
+//         console.log(tweets);
+//   	}).catch(function(err){
+// 		console.log('getting tweets broken', err);
+// 	});
+// }).catch(function(err){
+// 	console.log('broken', err);
+// });
+
+
+
 // app.use('/', routes);
 
 // app.get('/tweets', function(req, res) {
